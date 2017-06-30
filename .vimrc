@@ -1,6 +1,8 @@
 set encoding=utf-8
 set rtp+=~/.vim/bundle/dein.vim/
 
+set guifont=Monaco:h16
+colorscheme Tomorrow-Night-Eighties
 runtime! custom_preconfig/*.vim
 runtime! common_config/*.vim
 runtime! custom_config/*.vim
@@ -17,3 +19,7 @@ autocmd FileType css,scss,coffee set iskeyword=@,48-57,_,-,?,!,192-255
 :au FocusLost * silent! wa
 
 colorscheme Tomorrow-Night-Eighties
+
+" set default tab to 2 char
+set tabstop=2
+set shiftwidth=2

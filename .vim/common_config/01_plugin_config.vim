@@ -1,3 +1,10 @@
+if &compatible
+  set nocompatible
+endif
+
+set runtimepath+=expand("~/vim-config/.vim/bundle/dein.vim")
+
+if dein#load_state(expand("~/vim-config/.vim/bundle"))
   " Plugins are managed by call dein#add.
   call dein#begin(expand("~/.vim/bundle/"))
 
@@ -151,8 +158,15 @@
       map <Leader>oi :Rintegration<Space>
 
       let g:rails_projections = {
-        \ "app/assets/javascripts/*.js.coffee": { "alternate": "spec/javascripts/%s_spec.js.coffee" },
-        \ "spec/javascripts/*_spec.js.coffee": { "alternate": "app/assets/javascripts/%s.js.coffee" } }
+          \ "app/assets/javascripts/opl/view_models/*.js.coffee": {
+          \  "alternate": "spec/javascripts/opl/view_models/%s_spec.js.coffee",
+          \  "related": "app/assets/javascripts/opl/views/%s.js.coffee"
+          \ },
+          \ "app/assets/javascripts/opl/views/*.js.coffee": {
+          \  "alternate": "spec/javascripts/opl/views/%s_spec.js.coffee",
+          \  "related": "app/assets/javascripts/opl/view_models/%s.js.coffee"
+          \ }
+          \}
 
   " surround for adding surround 'physics'
     call dein#add("tpope/vim-surround")
@@ -185,3 +199,8 @@
     nmap <Leader>fj :call JsBeautify()<cr>
 
  call dein#end()
+ call dein#save_state()
+endif
+
+filetype plugin indent on
+syntax enable
