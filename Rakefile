@@ -27,13 +27,11 @@ task :default do
   Rake::Task['vundle'].execute
 end
 
-desc "Install neobundle for vim plugins"
+desc "Install dein"
 task :vundle do
-  target = "#{platform_files['.vim']}/bundle/neobundle.vim"
-  Installer.git_clone('https://github.com/Shougo/neobundle.vim', target)
-  puts "Running BundleInstall to install plugins...this will take a couple minutes."
-  `vim +NeoBundleInstall +qall`
-  puts "vim plugins installed."
+  target = "#{platform_files['.vim']}/bundle/dein.vim"
+  Installer.git_clone('https://github.com/Shougo/dein.vim', target)
+  puts "dein installed"
 end
 
 def platform_files
