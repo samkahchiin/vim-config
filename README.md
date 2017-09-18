@@ -1,4 +1,4 @@
-# OpsManager Vim Config
+# Vim Config
 
 Cloned from Neo, You should give theirs a try.
 
@@ -26,9 +26,11 @@ Windows users: be sure to use **RailsInstaller** > **Command Prompt with Ruby an
 1. `git clone git@github.com:opsmanger/vim-config.git`
 2. `cd vim-config`
 3. `rake` (This will symlink the necessary files to your home directory, asking for permission before clobbering anything.)
-4. `vim` (or in Windows: `gvim`)
-5. `call dein#install()` (This will install all of the vim plugins from github.)
-6. `brew install rg` (This installs rg for the Ack vim plugin to work)
+4. `cd .vim/bundle`
+5. `git clone git@github.com:Shougo/dein.vim.git`
+6. `vim` (or in Windows: `gvim` or in mac: `mvim .`)
+7. `call dein#install()` (This will install all of the vim plugins from github.)
+8. `brew install rg` (This installs rg for the Ack vim plugin to work)
 
 ## Customizing
 
