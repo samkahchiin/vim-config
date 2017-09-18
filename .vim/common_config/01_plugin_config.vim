@@ -159,12 +159,12 @@ if dein#load_state(expand("~/vim-config/.vim/bundle"))
 
       let g:rails_projections = {
           \ "app/assets/javascripts/opl/view_models/*.js.coffee": {
-          \  "alternate": "spec/javascripts/opl/view_models/%s_spec.js.coffee",
-          \  "related": "app/assets/javascripts/opl/views/%s.js.coffee"
+          \  "alternate": "spec/javascripts/opl/view_models/{}_spec.js.coffee",
+          \  "related": "app/assets/javascripts/opl/views/{}.js.coffee"
           \ },
           \ "app/assets/javascripts/opl/views/*.js.coffee": {
-          \  "alternate": "spec/javascripts/opl/views/%s_spec.js.coffee",
-          \  "related": "app/assets/javascripts/opl/view_models/%s.js.coffee"
+          \  "alternate": "spec/javascripts/opl/views/{}_spec.js.coffee",
+          \  "related": "app/assets/javascripts/opl/view_models/{}.js.coffee"
           \ }
           \}
 
