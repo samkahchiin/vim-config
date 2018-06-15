@@ -31,6 +31,17 @@ if dein#load_state(expand("~/vim-config/.vim/bundle"))
 
   call dein#add('junegunn/vim-easy-align')
 
+  call dein#add('nightsense/vimspectr')
+
+  " for jsx development
+  call dein#add("mxw/vim-jsx")
+  call dein#add('alvan/vim-closetag')
+  let g:closetag_filenames = "*.html,*.js"
+
+  " Vim ale (Check error)
+    call dein#add('w0rp/ale')
+    let g:ale_lint_on_text_changed = 'never'
+
   " Vim airline configs
     call dein#add('bling/vim-airline')
     let g:airline_enabled = 1
@@ -138,14 +149,15 @@ if dein#load_state(expand("~/vim-config/.vim/bundle"))
       vmap <C-k> [egv
       vmap <C-j> ]egv
 
-  " Syntastic for catching syntax errors on save
-    call dein#add("scrooloose/syntastic")
-      let g:syntastic_enable_signs=1
-      let g:syntastic_quiet_messages = {'level': 'warning'}
-      " syntastic is too slow for haml and sass
-      let g:syntastic_mode_map = { 'mode': 'active',
-                                 \ 'active_filetypes': [],
-                                 \ 'passive_filetypes': ['haml','scss','sass'] }
+  " Conflict with ale
+  " " Syntastic for catching syntax errors on save
+  "   call dein#add("scrooloose/syntastic")
+  "     let g:syntastic_enable_signs=1
+  "     let g:syntastic_quiet_messages = {'level': 'warning'}
+  "     " syntastic is too slow for haml and sass
+  "     let g:syntastic_mode_map = { 'mode': 'active',
+  "                                \ 'active_filetypes': [],
+  "                                \ 'passive_filetypes': ['haml','scss','sass'] }
 
   " rails.vim, nuff' said
     call dein#add("tpope/vim-rails")
@@ -165,6 +177,9 @@ if dein#load_state(expand("~/vim-config/.vim/bundle"))
           \ "app/assets/javascripts/opl/views/*.js.coffee": {
           \  "alternate": "spec/javascripts/opl/views/{}_spec.js.coffee",
           \  "related": "app/assets/javascripts/opl/view_models/{}.js.coffee"
+          \ },
+          \ "app/lib/*.rb": {
+          \  "alternate": "spec/lib/{}_spec.rb",
           \ }
           \}
 
@@ -180,7 +195,7 @@ if dein#load_state(expand("~/vim-config/.vim/bundle"))
   " Easy async RSpec running
     call dein#add('thoughtbot/vim-rspec')
     let g:rspec_runner = "os_x_iterm2"
-    let g:rspec_command = "rspec --format=progress --no-profile {spec}"
+    let g:rspec_command = "rspec --format documentation --no-profile {spec}"
     nmap <Leader>rc :wa<CR> :call RunCurrentSpecFile()<CR>
     nmap <Leader>rn :wa<CR> :call RunNearestSpec()<CR>
     nmap <Leader>rl :wa<CR> :call RunLastSpec()<CR>
