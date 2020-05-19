@@ -158,6 +158,9 @@ if dein#load_state(expand("~/vim-config/.vim/bundle"))
   "     let g:syntastic_mode_map = { 'mode': 'active',
   "                                \ 'active_filetypes': [],
   "                                \ 'passive_filetypes': ['haml','scss','sass'] }
+  "
+  " Easily customizable and asynchronous
+    call dein#add("dense-analysis/ale")
 
   " rails.vim, nuff' said
     call dein#add("tpope/vim-rails")
